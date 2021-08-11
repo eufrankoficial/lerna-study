@@ -1,0 +1,26 @@
+{
+  "name": "lerna-package",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "end user",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts",
+    "setup": "npm i && npm lerna:bootstrap --use-workspaces && npm run lerna:build && npm run link-packages"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "apollo-server": "^3.1.2",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1"
+  }
+}
